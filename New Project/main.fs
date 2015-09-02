@@ -14,8 +14,16 @@ while (mmm <> "a") do
     if mmm <> "a" then
         printfn "%A" (leftMost1 (Int32.Parse(mmm)))
 *)
-let al = [10;20;30;24]
-printfn "%A; %A" al.Tail (al |> List.max)
+let al = [| 10;20;30 |]
+let segsum a i j = (Array.sub a i j) |> Array.sum
+let sumedseg a n i j =
+    let thissum = segsum a i 1
+    let mutable restsumset = [| |]
+    if (i < n) then
+        if (j < n) then restsumset <- sumedseg a n i j++
+        else restsumset <- sumedseg a n i++ 0
+    Array.append [| thissum |] restsumset
+printfn "%A" (sumedseg al al.Length 0 0)
 
 (*
 let tp n = 1

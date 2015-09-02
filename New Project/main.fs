@@ -14,15 +14,16 @@ while (mmm <> "a") do
     if mmm <> "a" then
         printfn "%A" (leftMost1 (Int32.Parse(mmm)))
 *)
-(*
+let al = [10;20;30;24]
+printfn "%A; %A" al.Tail (al |> List.max)
 
-let al = [10;20]
+(*
 let tp n = 1
     for i = 0 to n-1 do
         for j = i to n-1 do 
             i+j
 
-[(i,j) | i <- [0...n-1], j<-[i...n-1]]
+as.n = [(i,j) | i <- [0...n-1], j<-[i...n-1]]
 --take.3.l
 --drop.n.l
 -- a!!i - is like a[i]

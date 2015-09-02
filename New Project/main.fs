@@ -1,10 +1,19 @@
-(* This is a comment *)
-(* Sample Hello World program using F# *)
-(* printfn "Hello World!" *)
-
-let a = [10;12]
-printfn "%A" al
-
+open System
+(*
+let isPof2 n = (n &&& (n-1) = 0)
+printfn "%b" (isPof2 1)
+*)
+(*
+let leftMost1 n = (n ^^^ (n-1) &&& n)
+printfn "%A" (leftMost1 24)
+*)
+(*
+let mutable mmm = "s"
+while (mmm <> "a") do
+    mmm <- Console.ReadLine()
+    if mmm <> "a" then
+        printfn "%A" (leftMost1 (Int32.Parse(mmm)))
+*)
 (*
 
 let al = [10;20]

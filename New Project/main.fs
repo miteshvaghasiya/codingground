@@ -20,15 +20,31 @@ printfn "%f" (l |> List.map (fun x->x*x*x) |> List.sum)
 printfn "%d" ([1..100] |> List.filter (fun x->x%5=0) |> List.sum)
 *)
 
-
+let l=[1;2;3;5;4;3;2;1;6]
 let rec qs = function
     | [] -> []
     | x::xs ->
         let l, r = List.partition ((>=) x) xs
         (qs l) @ [x] @ (qs r)
-
-
-printfn "%A" (qs [1;2;3;5;4;3;2;1])
+let rec splt li =
+    let l = List.length li
+    let n = l/2
+    let getseg li n i j =
+        match i with
+            | (n-j) List.nth li i
+    let tml,tmr =
+        li
+        |> List.mapi (fun i e -> i,e )
+        |> List.partition (fun (i,e) -> i < n)
+    let ext nli = List.map (fun (x,y) -> y) nli
+    let ml = ext tml
+    let mr = ext tmr
+    ml,mr
+    
+let rec ms li =
+    let ml,mr = splt li
+    printfn "%A     %A" ml mr
+printfn "%A" (ms l)
 
 
 

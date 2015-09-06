@@ -59,6 +59,83 @@ let rec qs_old l =
 
 
 
+(*
+using System.IO;
+using System.Collections.Generic;
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string s;
+        while((s=Console.ReadLine()).Trim() != "")
+        {
+            int d;
+            if(int.TryParse(s, out d))
+            {
+                sol(s);
+                Console.WriteLine("Calculated:: " + solution(d));
+            }
+        }
+    }
+    static int sol(string s)
+    {
+        List<string> r = new List<string>();
+        r.Add(s[0].ToString());
+        for(int i=1;i<s.Length;i++)
+        {
+            for(int j=r.Count-1;j>=0;j--)
+            {
+                string si = r[j];
+                r.RemoveAt(j);
+                r.Add(s[i] + si);
+                for(int k=1;k<si.Length;k++)
+                {
+                    r.Add(si.Substring(0,k) + s[i] + si.Substring(k,si.Length-k));
+                }
+                r.Add(si + s[i]);
+            }
+        }
+        Dictionary<string,string> d = new Dictionary<string,string>();
+        for(int i=0;i<r.Count;i++)
+        {
+            d[r[i]]=null;
+        }
+        r=d.Keys.ToList();
+        
+        for(int i=0,j=1;i<r.Count;i++,j++)
+        {
+            Console.Write(r[i] + "  ");
+            if((s.Length + 1) * j > 140) {Console.WriteLine();j=0;}
+        }
+        Console.WriteLine();
+        Console.WriteLine("Count:: " + r.Count);
+        return 0;
+    }
+    static int solution(int N)
+    {
+        if(N==0) return 1;
+        int c=0;
+        int[] d=new int[10];
+        while(N>0)
+        {
+            d[N%10]++;
+            c++;
+            N/=10;
+        }
+        int nF = fact(c);
+        int r1Fr2FN=1;
+        for(int i=0;i<d.Length;i++)
+        {
+            r1Fr2FN *= fact(d[i]);
+        }
+        return nF/r1Fr2FN;
+    }
+    static int fact(int n){int f=1; for(int i=1;i<=n;i++)f*=i;return f;}
+}
+*)
 
 
 
